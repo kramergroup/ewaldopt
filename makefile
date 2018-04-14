@@ -1,10 +1,11 @@
 F90_FILES := $(wildcard src/*.f90)
 OBJ_FILES := $(addprefix obj/,$(notdir $(F90_FILES:.f90=.o)))
 
-F90=ifort
+F90=gfortran
 
-FFLAGS=-g -CB -traceback -module mod
-
+# Flags for ifort
+# FFLAGS=-g -CB -traceback -module mod
+FFLAGS=-Imod -Jmod -Wall -Wextra -ffree-line-length-none -Bstatic -dn -static 
 main: ewaldopt
 
 ewaldopt: obj/ewaldsum.o obj/structure.o obj/ewaldopt.o
