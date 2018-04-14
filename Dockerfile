@@ -8,7 +8,7 @@ RUN make
 RUN chmod a+x /work/ewaldopt
 
 # ------------------------------------------------------------------------------
-FROM alpine:latest
+FROM scratch
 
 COPY --from=builder /work/ewaldopt /ewaldopt
 
